@@ -1,10 +1,10 @@
+import {arrayUnique} from '../shared/helpers';
+
 const LOG_ACTIONS = {
   BEGINS_SHIFT: 'begins_shift',
   FALLS_ASLEEP: 'falls_asleep',
   WAKES_UP: 'wakes_up',
 };
-
-const arrayUnique = arr => ([...new Set(arr)]);
 
 const parseAction = action => {
   const beginsShiftRegex = /Guard #(\d*?) begins shift/;
