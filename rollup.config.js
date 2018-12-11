@@ -12,6 +12,8 @@ export default {
     localResolve(),
     replace({
       DAY_6_DISTANCE_THRESHOLD: 10000,
+      DAY_7_TIME_ADDITION: 60,
+      DAY_7_WORKER_COUNT: 5,
     }),
     strip({
       debugger: true,

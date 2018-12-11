@@ -13,6 +13,8 @@ export default {
     localResolve(),
     replace({
       DAY_6_DISTANCE_THRESHOLD: 32,
+      DAY_7_TIME_ADDITION: 0,
+      DAY_7_WORKER_COUNT: 2,
     }),
     multiEntry(),
   ],

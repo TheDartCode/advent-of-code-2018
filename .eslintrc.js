@@ -9,7 +9,9 @@ module.exports = {
     es6: true
   },
   globals: {
-    DAY_6_DISTANCE_THRESHOLD: false
+    DAY_6_DISTANCE_THRESHOLD: false,
+    DAY_7_TIME_ADDITION: false,
+    DAY_7_WORKER_COUNT: false
   },
   parserOptions: {
     ecmaVersion: 2018,
