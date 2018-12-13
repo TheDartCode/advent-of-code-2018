@@ -7,19 +7,18 @@
     "prebuild": "npm test",
     "build": "rollup -c rollup.config.js",
     "lint": "eslint script/**/*.js src/index.js src/**/*.js",
-    "solve": "babel-node script/solve.js",
+    "solve": "node --require @babel/register script/solve.js",
     "pretest": "npm run lint",
-    "test": "rollup -c rollup.config.test.js && mocha --require babel-register test/*.js"
+    "test": "rollup -c rollup.config.test.js && mocha --require @babel/register test/*.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1"
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0"
   },
   "devDependencies": {
-    "babel-register": "^6.26.0",
+    "@babel/register": "^7.0.0",
     "chai": "^4.2.0",
     "eslint": "^5.10.0",
     "mocha": "^5.2.0",
