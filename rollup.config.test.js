@@ -1,3 +1,4 @@
+import replace from 'rollup-plugin-replace';
 import multiEntry from 'rollup-plugin-multi-entry';
 import localResolve from 'rollup-plugin-local-resolve';
 
@@ -10,6 +11,9 @@ export default {
   external: ['chai'],
   plugins: [
     localResolve(),
+    replace({
+      DAY_6_DISTANCE_THRESHOLD: 32,
+    }),
     multiEntry(),
   ],
 };

@@ -1,4 +1,5 @@
 import strip from 'rollup-plugin-strip';
+import replace from 'rollup-plugin-replace';
 import localResolve from 'rollup-plugin-local-resolve';
 
 export default {
@@ -9,6 +10,9 @@ export default {
   },
   plugins: [
     localResolve(),
+    replace({
+      DAY_6_DISTANCE_THRESHOLD: 10000,
+    }),
     strip({
       debugger: true,
       functions: [

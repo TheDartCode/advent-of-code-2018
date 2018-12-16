@@ -9,6 +9,7 @@ module.exports = {
     es6: true
   },
   globals: {
+    DAY_6_DISTANCE_THRESHOLD: false
   },
   parserOptions: {
     ecmaVersion: 2018,
