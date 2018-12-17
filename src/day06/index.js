@@ -1,4 +1,4 @@
-import {numericMaxBy} from '../shared/helpers';
+import {numericMax} from '../shared/helpers';
 
 const parseLine = line => line
   .split(', ')
@@ -32,8 +32,8 @@ const findClosestReferencePoint = (point, referencePoints) => {
 };
 
 const createMappedPlane = referencePoints => {
-  const width = numericMaxBy(referencePoints, p => p[0]) + 1;
-  const height = numericMaxBy(referencePoints, p => p[1]) + 1;
+  const width = numericMax(referencePoints, p => p[0]) + 1;
+  const height = numericMax(referencePoints, p => p[1]) + 1;
 
   const map = new Array(width * height)
     .fill(null)
@@ -89,7 +89,7 @@ const moduleA = input => {
     .map(referencePoint => getReferencePointAreaInfo(plane, referencePoint))
     .filter(si => si.areaSize !== Infinity);
 
-  return numericMaxBy(areaSizeInfo, si => si.areaSize);
+  return numericMax(areaSizeInfo, si => si.areaSize);
 };
 
 const moduleB = input => {
