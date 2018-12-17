@@ -100,7 +100,11 @@ const moduleA = input => {
 };
 
 const moduleB = input => {
+  const points = parseInput(input);
 
+  const mostCohesiveSnapshot = findMostCohesiveSnapshot(points);
+
+  return mostCohesiveSnapshot.time;
 };
 
 export {

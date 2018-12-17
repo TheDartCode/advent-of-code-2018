@@ -230,7 +230,7 @@ describe('Day 10', () => {
 
   describe('Puzzle B', () => {
     it('satisfies examples', () => {
-      expect(moduleB(input)).to.eq();
+      expect(moduleB(lines.join('\n'))).to.eq(3);
     });
   });
 
