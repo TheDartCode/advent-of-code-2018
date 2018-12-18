@@ -15,6 +15,7 @@ export default {
       DAY_6_DISTANCE_THRESHOLD: 32,
       DAY_7_TIME_ADDITION: 0,
       DAY_7_WORKER_COUNT: 2,
+      DAY_10_MAX_SEARCH_TIME: 10,
     }),
     multiEntry(),
   ],

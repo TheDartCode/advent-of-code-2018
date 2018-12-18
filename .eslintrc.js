@@ -11,7 +11,8 @@ module.exports = {
   globals: {
     DAY_6_DISTANCE_THRESHOLD: false,
     DAY_7_TIME_ADDITION: false,
-    DAY_7_WORKER_COUNT: false
+    DAY_7_WORKER_COUNT: false,
+    DAY_10_MAX_SEARCH_TIME: false,
   },
   parserOptions: {
     ecmaVersion: 2018,

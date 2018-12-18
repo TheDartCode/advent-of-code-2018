@@ -14,6 +14,7 @@ export default {
       DAY_6_DISTANCE_THRESHOLD: 10000,
       DAY_7_TIME_ADDITION: 60,
       DAY_7_WORKER_COUNT: 5,
+      DAY_10_MAX_SEARCH_TIME: 20000,
     }),
     strip({
       debugger: true,
