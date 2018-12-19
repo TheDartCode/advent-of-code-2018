@@ -23,5 +23,5 @@ export const arrayAvg = (arr, propertySelector = (x => x)) => {
 };
 
 export const manhattanDistance = (p1, p2) => {
-  return Math.abs(p1.position.x - p2.position.x) + Math.abs(p1.position.y - p2.position.y);
+  return Math.abs(p1.x - p2.x) + Math.abs(p1.y - p2.y);
 };
