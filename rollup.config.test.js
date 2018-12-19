@@ -7,6 +7,7 @@ export default {
   output: {
     file: 'test/index.js',
     format: 'cjs',
+    sourcemap: true,
   },
   external: ['chai'],
   plugins: [
