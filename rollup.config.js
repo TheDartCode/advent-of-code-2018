@@ -15,6 +15,7 @@ export default {
       DAY_7_TIME_ADDITION: 60,
       DAY_7_WORKER_COUNT: 5,
       DAY_10_MAX_SEARCH_TIME: 20000,
+      DAY_11_GRID_SIZE: 300,
     }),
     strip({
       debugger: true,
