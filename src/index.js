@@ -9,6 +9,7 @@ import * as day8 from './day08';
 import * as day9 from './day09';
 import * as day10 from './day10';
 import * as day11 from './day11';
+import * as day12 from './day12';
 
 export default {
   '1': day1,
@@ -22,4 +23,5 @@ export default {
   '9': day9,
   '10': day10,
   '11': day11,
+  '12': day12,
 };
