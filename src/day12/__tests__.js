@@ -111,7 +111,7 @@ describe('Day 12', () => {
 
   describe('Puzzle B', () => {
     it('satisfies examples', () => {
-      expect(moduleB(input)).to.eq();
+      expect(moduleB(input)).to.eq(999999999374);
     });
   });
 

@@ -128,6 +128,47 @@ const breed = (pots, breedingFacts, generations) => {
   return result;
 };
 
+const generationsAreEqual = (generation1, generation2) => {
+  if (generation1.pots.join('') !== generation2.pots.join('')) {
+    return false;
+  }
+
+  // detect constant change in index of left-most pot
+  if (generation1.generation - generation1.pots[0].index !== generation2.generation - generation2.pots[0].index) {
+    return false;
+  }
+
+  return true;
+};
+
+const calculateResultingBreed = (pots, breedingFacts, maxGeneration) => {
+  let currentGeneration = {generation: 0, pots};
+  for (let i = 0; i < maxGeneration; i = i + 1) {
+    const nextGeneration = {
+      pots: breedGeneration(currentGeneration.pots, breedingFacts),
+      generation: i + 1,
+    };
+    if (generationsAreEqual(nextGeneration, currentGeneration)) {
+      break;
+    }
+    currentGeneration = nextGeneration;
+  }
+
+  // if the iteration stopped before the generation limit,
+  // then let's fast-forward to the desired generation
+  if (currentGeneration.generation !== maxGeneration) {
+    currentGeneration = {
+      generation: maxGeneration,
+      pots: currentGeneration.pots.map(pot => ({
+        ...pot,
+        index: pot.index + (maxGeneration - currentGeneration.generation),
+      })),
+    };
+  }
+
+  return currentGeneration;
+};
+
 const moduleA = input => {
   const {pots, breedingFacts} = parseInput(input);
   const generations = breed(pots, breedingFacts, 20);
@@ -141,7 +182,15 @@ const moduleA = input => {
 };
 
 const moduleB = input => {
+  const {pots, breedingFacts} = parseInput(input);
+  const resultingBreed = calculateResultingBreed(pots, breedingFacts, 50000000000);
 
+  return resultingBreed
+    .pots
+    .filter(pot => pot.containsPlant)
+    .reduce((acc, pot) => {
+      return acc + pot.index;
+    }, 0);
 };
 
 export {
