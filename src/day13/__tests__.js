@@ -13,13 +13,23 @@ import {
 } from './constants';
 
 describe('Day 13', () => {
-  const input = [
+  const inputA = [
     '/->-\\        ',
     '|   |  /----\\',
     '| /-+--+-\\  |',
     '| | |  | v  |',
     '\\-+-/  \\-+--/',
     '  \\------/   ',
+  ].join('\n');
+
+  const inputB = [
+    '/>-<\\  ',
+    '|   |  ',
+    '| /<+-\\',
+    '| | | v',
+    '\\>+</ |',
+    '  |   ^',
+    '  \\<->/',
   ].join('\n');
 
   const carts = [
@@ -117,7 +127,7 @@ describe('Day 13', () => {
 
     describe('#parseInput', () => {
       it('parses carts and tracks from input map', () => {
-        expect(parseInput(input)).to.deep.eq({
+        expect(parseInput(inputA)).to.deep.eq({
           carts,
           map,
         });
@@ -148,19 +158,41 @@ describe('Day 13', () => {
           {x: 3, y: 0, direction: CART_DIRECTIONS.LEFT, crash: true},
         ]);
       });
-    });
 
+      context('when removeCrashed === true', () => {
+        it('advances all carts one step, respecting priority, and removes those that crashed', () => {
+          expect(tick([
+            new Cart(2, 0, CART_DIRECTIONS.RIGHT),
+            new Cart(9, 3, CART_DIRECTIONS.DOWN),
+          ], map, {removeCrashed: true}).map(cartToPOJO)).to.deep.eq([
+            {x: 3, y: 0, direction: CART_DIRECTIONS.RIGHT, crash: false},
+            {x: 9, y: 4, direction: CART_DIRECTIONS.RIGHT, crash: false},
+          ]);
+          expect(tick([
+            new Cart(3, 0, CART_DIRECTIONS.LEFT),
+            new Cart(2, 0, CART_DIRECTIONS.LEFT),
+          ], map, {removeCrashed: true}).map(cartToPOJO)).to.deep.eq([
+            {x: 1, y: 0, direction: CART_DIRECTIONS.LEFT, crash: false},
+            {x: 2, y: 0, direction: CART_DIRECTIONS.LEFT, crash: false},
+          ]);
+          expect(tick([
+            new Cart(2, 0, CART_DIRECTIONS.RIGHT),
+            new Cart(4, 0, CART_DIRECTIONS.LEFT),
+          ], map, {removeCrashed: true}).map(cartToPOJO)).to.deep.eq([]);
+        });
+      });
+    });
   });
 
   describe('Puzzle A', () => {
     it('satisfies examples', () => {
-      expect(moduleA(input)).to.eq('7,3');
+      expect(moduleA(inputA)).to.eq('7,3');
     });
   });
 
   describe('Puzzle B', () => {
     it('satisfies examples', () => {
-      // expect(moduleB(input)).to.eq();
+      expect(moduleB(inputB)).to.eq('6,4');
     });
   });
 

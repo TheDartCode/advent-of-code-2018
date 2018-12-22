@@ -81,7 +81,7 @@ const sortCartsByPriority = (c1, c2) => {
   return c1.x - c2.x;
 };
 
-const tick = (carts, map) => {
+const tick = (carts, map, {removeCrashed = false} = {}) => {
   carts.sort(sortCartsByPriority);
   carts.forEach((cart, index) => {
     const {x, y} = cart.getNextPosition();
@@ -95,7 +95,9 @@ const tick = (carts, map) => {
     }
   });
 
-  return carts;
+  return removeCrashed
+    ? carts.filter(cart => !cart.crash)
+    : carts;
 };
 
 const moduleA = input => {
@@ -110,7 +112,15 @@ const moduleA = input => {
 };
 
 const moduleB = input => {
+  const {carts, map} = parseInput(input);
 
+  let currentCarts = carts;
+
+  do {
+    currentCarts = tick(currentCarts, map, {removeCrashed: true});
+  } while (currentCarts.length > 1);
+
+  return `${currentCarts[0].x},${currentCarts[0].y}`;
 };
 
 export {
