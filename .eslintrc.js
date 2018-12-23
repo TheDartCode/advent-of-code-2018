@@ -13,6 +13,7 @@ module.exports = {
     DAY_7_TIME_ADDITION: false,
     DAY_7_WORKER_COUNT: false,
     DAY_10_MAX_SEARCH_TIME: false,
+    DAY_11_GRID_SIZE: false,
   },
   parserOptions: {
     ecmaVersion: 2018,
@@ -209,7 +210,7 @@ module.exports = {
         afterColon: true
       }
     ],
-    'max-nested-callbacks': [WARN, 4],
+    'max-nested-callbacks': [WARN, 6],
     'new-parens': WARN,
     'no-array-constructor': WARN,
     'no-continue': WARN,

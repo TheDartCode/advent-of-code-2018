@@ -44,7 +44,7 @@ const constructSnapshot = (points, time = 0) => {
   });
 
   points.forEach(point => {
-    point.neighbours = points.filter(p => manhattanDistance(point, p) < 2).length;
+    point.neighbours = points.filter(p => manhattanDistance(point.position, p.position) < 2).length;
   });
 
   const cohesion = arrayAvg(points, p => p.neighbours);

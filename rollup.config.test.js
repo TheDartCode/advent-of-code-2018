@@ -7,6 +7,7 @@ export default {
   output: {
     file: 'test/index.js',
     format: 'cjs',
+    sourcemap: true,
   },
   external: ['chai'],
   plugins: [
@@ -16,6 +17,7 @@ export default {
       DAY_7_TIME_ADDITION: 0,
       DAY_7_WORKER_COUNT: 2,
       DAY_10_MAX_SEARCH_TIME: 10,
+      DAY_11_GRID_SIZE: 4,
     }),
     multiEntry(),
   ],
